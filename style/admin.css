@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+/* =========================================
+   Reset & Variables
+========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                  
+    --cream: #F5EBE1;                       
+
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                        
+    --green-hover: #4a5c4b;                  
+
+    --light: #F5EBE1;                        
+    --white: #FFFFFF;                        
+
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+body { 
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--cream); 
+    display: flex;
+    padding: 20px 10px;
+    justify-content: center;
+    align-items: flex-start; /* แก้ปัญหาสโครลหน้าจอแล้วเนื้อหาหลุดขอบบน */
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 1440px;
+    max-width: 100%;
+    padding: 20px 30px;
+}
+
+h1 {
+    color: var(--brown-dark);
+    text-align: left; 
+    border-bottom: 2px solid var(--brown-light); 
+    padding-bottom: 15px; 
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+h2 { 
+    color: var(--brown-dark); /* ปรับสีตัวหนังสือให้อ่านออกบนพื้นหลังครีม */
+    text-align: left; 
+    border-bottom: 2px solid var(--brown-light); 
+    padding-bottom: 15px; 
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+/* =========================================
+   Forms and Layout
+========================================= */
+.radio-group { 
+    display: flex; 
+    flex-wrap: wrap; /* ให้ปุ่มวิทยุขึ้นบรรทัดใหม่ได้บนมือถือ */
+    gap: 15px; 
+    align-items: center; 
+    background: var(--white); 
+    padding: 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.form-section { 
+    background: var(--white); 
+    border: 1px solid var(--brown-light); 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    box-shadow: var(--shadow);
+}
+
+.form-group { 
+    margin-bottom: 15px; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.form-row { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
+}
+
+label { 
+    font-weight: 600; 
+    margin-bottom: 8px; 
+    color: var(--brown-dark); 
+}
+
+input, select, textarea { 
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    font-size: 16px; 
+    font-family: 'Kanit', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+} 
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--brown-dark);
+    box-shadow: 0 0 0 3px rgba(93, 64, 56, 0.15);
+}
+
+/* Styling for Readonly fields */
+input[readonly] { 
+    background: #e9ecef; 
+    cursor: not-allowed; 
+    color: #666;
+    border-color: #ddd;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+.btn-calc { 
+    background: var(--brown-light); 
+    color: var(--white); /* แก้จาก var(--primary) */
+    border: none; 
+    padding: 12px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-size: 18px; 
+    width: 100%; 
+    font-weight: bold; 
+    margin-top: 10px; 
+    transition: background 0.3s; 
+}
+
+.btn-calc:hover { 
+    background: var(--pink-hover); 
+}
+
+.btn-save { 
+    background: var(--green); 
+    color: var(--white); 
+    border: none; 
+    padding: 15px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-size: 18px; 
+    width: 100%; 
+    font-weight: bold; 
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.btn-save:hover {
+    background: var(--green-hover);
+}
+
+/* =========================================
+   Receipt
+========================================= */
+.receipt-box { 
+    display: none; 
+    margin-top: 20px; 
+    padding: 25px; 
+    border: 2px dashed var(--brown-dark); 
+    background: #fffcf9; 
+    border-radius: 10px;
+}
+
+.receipt-title { 
+    text-align: center; 
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+    color: var(--brown-dark);
+}
+
+.receipt-details p { 
+    margin: 0; 
+    font-size: 16px; 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 10px;
+    border-bottom: 1px dotted #ccc; 
+    padding: 10px 0;
+}
+
+.receipt-total { 
+    font-size: 26px; 
+    font-weight: bold; 
+    color: #d32f2f; 
+    text-align: right; 
+    margin-top: 20px; 
+}
+
+/* =========================================
+   Tags
+========================================= */
+.tag-brown {
+    background-color: var(--brown-light); 
+    color: var(--white); 
+    padding: 3px 10px;
+    border-radius: 15px; 
+    font-size: 13px;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+}
+
+/* =========================================
+   Select2 Multiple
+========================================= */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--brown-light) !important; 
+    border: 1px solid var(--brown-dark) !important; 
+    color: var(--white) !important; 
+    border-radius: 15px !important; 
+    padding: 3px 10px !important;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: var(--white) !important;
+    border-right: none !important;
+    margin-right: 8px !important;
+    font-weight: bold;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: var(--cream) !important;
+    background-color: transparent !important;
+}
+
+/* =========================================
+   Responsive Breakpoints (Pure CSS)
+========================================= */
+/* แท็บเล็ต (<= 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr; /* ยุบจาก 2 คอลัมน์เป็น 1 คอลัมน์ */
+    }
+
+    .radio-group {
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* มือถือ (<= 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px 5px;
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    .receipt-box {
+        padding: 15px;
+    }
+
+    .receipt-details p {
+        flex-direction: column; /* ถ้ารายการใบเสร็จยาวเกินไป ให้ย้ายค่าลงมาบรรทัดใหม่ */
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .receipt-total {
+        font-size: 20px;
+        text-align: center;
+    }
+}

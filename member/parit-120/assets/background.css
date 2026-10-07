@@ -1,0 +1,17 @@
+body { 
+            font-family: 'Kanit', sans-serif; 
+            background-color: #ffb24e; /* สีพื้นฐานเทาอมฟ้า */
+            
+            /* สร้างลวดลาย Tech Grid และแสงฟุ้ง */
+            background-image: 
+                /* เส้นตาราง Grid แนวตั้งและแนวนอนจางๆ */
+                linear-gradient(rgba(0, 0, 0, 0.062) 1px, transparent 6px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.062) 1px, transparent 6px),
+                /* แสงฟุ้งสีฟ้ามุมซ้ายบน */
+                radial-gradient(circle at 0% 0%, rgb(199, 144, 92) 0%, transparent 100%),
+                /* แสงฟุ้งสีม่วงมุมขวาล่าง */
+                radial-gradient(circle at 100% 100%, rgb(199, 144, 92) 0%, transparent 100%);
+                
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%; /* ขนาดตาราง 40px */
+            background-attachment: fixed; /* ให้พื้นหลังนิ่งเวลาเลื่อนจอ */
+        }

@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    display: flex;             /* ใช้ Flexbox */
+    justify-content: center;    /* จัดกึ่งกลางแนวนอน */
+    align-items: center;        /* จัดกึ่งกลางแนวตั้ง */
+    min-height: 100vh;          /* บังคับให้ความสูงเท่ากับหน้าจอพอดี */
+    text-align: center;         /* จัดให้ตัวอักษรด้านในอยู่กลางด้วย */
+    background-color: #f8f8f8;  /* (เผื่อไว้) สีพื้นหลัง */
+}
+
+.container {
+    /* คุณสามารถกำหนดความกว้างสูงสุดของเนื้อหาได้ที่นี่ */
+    max-width: 90%;
+}
+
+/* ปรับขนาด SVG ให้พอดีกับหน้าจอเผื่อในกรณีจอเล็ก */
+svg {
+    max-width: 100%;
+    height: auto;
+}

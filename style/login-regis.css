@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. RESET & ROOT VARIABLES
+==================================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                 
+    --cream: #F5EBE1;                       
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                       
+    --green-hover: #4a5c4b;                 
+    --light: #F5EBE1;                       
+    --white: #FFFFFF;                       
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/web/WrinkledPaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px 10px;
+}
+
+/* ==================================================== 
+   2. AUTH CONTAINER & CARDS
+==================================================== */
+.bg-overlay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container, .register-container {
+    background-color: var(--brown-dark);
+    width: 100%;
+    max-width: 500px;
+    padding: 35px 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: var(--cream);
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.auth-card {
+    background-color: var(--pink);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.divider {
+    color: var(--cream);
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--cream);
+    color: var(--brown-dark);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.close-btn:hover {
+    background-color: #d13237;
+    color: var(--white);
+    transform: rotate(180deg);
+}
+
+/* ==================================================== 
+   3. INPUTS & BUTTONS
+==================================================== */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    color: var(--brown-dark);
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--cream);
+    font-size: 15px;
+    color: var(--brown-dark);
+    outline: none;
+}
+
+.forgot-pwd {
+    display: block;
+    color: var(--brown-dark);     
+    font-size: 13px;
+    text-decoration: underline;
+    margin-bottom: 15px;
+    text-align: right;            
+    transition: color 0.3s ease;  
+}
+
+.forgot-pwd:hover {
+    color: var(--white);          
+}
+
+.btn-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Login Button */
+.btn-inner-login {
+    background-color: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-inner-login:hover {
+    background-color: var(--green-hover);
+}
+
+/* Signup Button */
+.btn-outer-signup {
+    display: block;
+    background-color: var(--green);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-outer-signup:hover {
+    background-color: var(--green-hover);
+    transform: scale(1.02);
+}
+
+/* ==================================================== 
+   4. RESPONSIVE BREAKPOINTS
+==================================================== */
+@media (max-width: 480px) {
+    .login-container, .register-container {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .auth-card {
+        padding: 18px;
+    }
+}

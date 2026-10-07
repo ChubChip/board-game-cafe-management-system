@@ -1,0 +1,364 @@
+@import url(https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap);
+
+* { margin: 0 }
+
+::selection { background: #000000 }
+
+html {
+	/* so its descendants know its width 
+	 * minus vertical scrollbar, 
+	 * if there is any, as 100cqw */
+  container-type: inline-size;
+	/* for skip links */
+  scroll-behavior: smooth
+}
+
+body, main, article, footer, 
+section { display: grid }
+
+body {
+  --fgc: #ffffff;
+  --hlc: #ffffff;
+  display: grid;
+	/* create the three columns of the grid */
+  grid-template-columns: 
+    1lh min(100cqw - 2lh, 550px) 1lh;
+  justify-content: space-evenly;
+	/* needed for viewport sticky skip links */
+  align-items: start;
+  position: relative;
+  background: #000000;
+  color: var(--fgc);
+	/* font-size scales with viewport 
+	 * within reasonable limits */
+  font: clamp(.875em, 3vw, 1.375em)/ 3 
+    cormorant, serif;
+
+	/* use pseudo for masked header image 
+	 * instead of empty div */
+  &::before {
+    grid-area: 1/ 1/ span 1/ span 3;
+    justify-self: center;
+    width: 100cqw /* full-bleed */;
+    height: 50vh;
+    background: 
+      url(https://wallpapers.com/images/hd/gorgeous-example-of-investment-k98ofoccnc4i8uhq.jpg)
+      50% / cover;
+		/* so it goes from opaque at the top to 
+		 * transparent at the bottom */
+    mask: linear-gradient(red, #0000);
+    content: ''
+  }
+}
+
+a {
+  --hov: 0 /* hover flag, initially off (0) */;
+  color: 
+    color-mix(in srgb, 
+      var(--hlc) calc(var(--hov)*100%), 
+      var(--fgc));
+  opacity: calc(1 - .2*(1 - var(--hov)));
+  text-decoration: none;
+  transition: .5s;
+	/* for better perf, animate translation
+	 * instead of margin or size */
+	transition-property: translate, color;
+	
+	/* ensure same styles apply to focus too */
+  &:is(:hover, :focus) { --hov: 1 }
+}
+
+.skip-link {
+  /* link index (0 or 1, defaults to 1) */
+  --_i: var(--i, 1);
+  /* link index complement j = 1 - i
+   * if i is 0, j is 1; if i is 1, j is 0 */
+  --j: (1 - var(--_i));
+  /* map index to sign
+   * if i is 0, sign is -1; 
+   * if i is 1, sign is 1 */
+  --sgn: sign(var(--_i) - .5);
+  /* both links on first row, 
+   * column depends on link index, 
+	 * either 1st (i is 0) or 3rd (i is 1) */
+  grid-area: 1/ calc(1 + 2*var(--_i));
+  /* vertically align to end IF 
+   * i not explicitly defined (using default) 
+   * this is the case for the second link; 
+   * the first one falls back on 
+   * the default alignment (to start); 
+   * needs to be set for sticky effect  */
+  align-self: var(--i, end);
+  /* so links stick to top & bottom 
+   * of viewport respectively */
+  position: sticky;
+  /* vertical offset from viewport edge 
+   * (lateral offset uses auto default); 
+   * needs to be set for sticky effect */
+  inset: 5em auto;
+  /* so they're above main content 
+   * (footer background in particular) */
+  z-index: 2;
+  /* space to deco line */
+  padding: 1em 0;
+  /* create deco line before or after text
+   * depending on link index */ 
+  border-image: 
+    linear-gradient(90deg,
+        #0000 calc(50% - 1px),
+        #dcdcdc 0 50%, #0000 0)
+      1 0 / 
+      /* line above text (before) 
+       * if link index i is 0 (so j is 1) */
+      calc(var(--j)*50vh) 0 
+      /* line below text (after) 
+       * if link index i is 1 */
+      calc(var(--_i)*50vh) 0/ 
+      50vh 0;
+  translate: 
+		/* y translation: 
+		 * sign depends on link index
+		 * amount on hover/ focus state */
+    0 calc(var(--hov)*var(--sgn)*-1em);
+  font-style: italic;
+  /* vertical text, simpler than transform + 
+   * figuring out transform-origin */
+  writing-mode: vertical-rl;
+  
+  /* change link index on first link to 0 */
+  &[href="#"] { --i: 0 }
+}
+
+main {
+	/* 1st (only) row, 2nd column */
+  grid-area: 1/ 2;
+  grid-gap: 1em;
+	/* we want its children to know its width 
+	 * for font sizing  */
+  container-type: inline-size;
+	/* ensure it's on top of header image */
+  z-index: 1;
+  padding-top: 20vh;
+  line-height: 1.125
+}
+
+h1, h2, h3, h4 { font-weight: 400 }
+
+article {
+  grid-gap: 1.5em;
+	
+	/* use clamp values; 
+	 * this eliminates the need for MQs and 
+	 * we have smooth, not abrupt transitions 
+	 * from one font-size to another */
+  h1 { font-size: clamp(1.5rem, 25cqw, 10em) }
+
+  h2 {
+    font-size: clamp(1.25rem, 7cqw, 3em);
+    font-style: italic
+  }
+
+  p, blockquote { line-height: 1.5 }
+
+  blockquote {
+		/* use border instead of pseudo */
+    border-left: solid 4px;
+    padding-left: 1em;
+    font-weight: 700
+  }
+}
+
+footer {
+  grid-gap: 2em;
+  padding: min(9em, 5vw + 4em) 0;
+  border-image: 
+    conic-gradient(#000000 0 0) 
+      fill 0/ 0 50vw 1em;
+  line-height: 1.5;
+
+  h3 { font-size: clamp(1.375rem, 13cqw, 5em) }
+
+  h4 {
+    font-size: clamp(1.125rem, 8cqw, 4em);
+    font-style: italic
+  }
+
+  ul {
+    list-style: none;
+    padding: 0
+  }
+
+  a {
+		/* needed for translation */
+    display: inline-block;
+    translate: calc(var(--hov)*.5em)
+  }
+}
+
+section { grid-gap: .5em }
+
+button {
+    cursor: pointer;
+    outline: 0;
+    width: 180px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-top: 40px;
+    overflow: hidden;
+    -webkit-transform: scale(.7);
+            transform: scale(.7);
+}
+
+button::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 46px;
+    margin-left: -7px;
+    margin-top: -1px;
+    -webkit-transition: all 200ms cubic-bezier(0.25, 0.75, 0.5, 1.25);
+    transition: all 200ms cubic-bezier(0.25, 0.75, 0.5, 1.25);
+}
+
+.box-2:hover button::before {
+    width: 120%;
+    opacity: .8;
+    background-color: #ff0000;
+}
+
+.box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    will-change: transform;
+}
+
+.box:hover .cover {
+    -webkit-transform: translateY(-14px) scale(1.04);
+            transform: translateY(-14px) scale(1.04);
+}
+
+/* ปุ่ม */
+.box-2 button { 
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    font-size: 22px;
+    text-align: right;
+    padding-right: 20px;
+    line-height: 40px;
+}
+
+.box-2 button::after {
+    content: "";
+    background-color: #ff0000;
+    top: -85px
+}
+
+.cover {
+    -webkit-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    will-change: transform;
+}
+
+.box .cover::after {
+    content: "";
+    z-index: -99;
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    display: block;
+    width: 160px;
+    height: 214px;
+    opacity: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 160px 214px;
+    -webkit-filter: blur(24px);
+            filter: blur(24px);
+    -webkit-transition: all 260ms ease-in-out;
+    transition: all 260ms ease-in-out;
+    will-change: transform;
+    -webkit-transform: scale(.6);
+            transform: scale(.6);
+}
+
+.box:hover .cover::after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+
+.box-2 .cover::after {
+    background-image: url('pic/news.png');
+}
+
+.box-2 button div::before {
+    content: 'Tutorials';
+    position: relative;
+    top: -44px;
+    left: -16px;
+    color: #ff0000;
+    font-size: 23px;
+    font-weight: 300;
+}
+
+.box-2:hover button div::before {
+    color: #ff0000;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 115%;
+  background: rgba(0, 0, 0, 0.4); /* พื้นหลังดำจางๆ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(15px); /* ทำให้พื้นหลังเบลอ */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.glass-card {
+  
+  padding: 2.5rem;
+  border-radius: 50px;
+  /* border: 1px solid rgb(0, 0, 0); */
+  text-align: center;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 8px 32px rgb(255, 255, 255);
+}
+
+/* ปุ่มกด */
+#play-btn {
+    background: transparent;
+    color: #ffd900;
+    border: 2px solid #ffffff;
+    padding: 50px 150px;
+    font-size: 2rem;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.4s;
+    box-shadow: 0 0 30px rgba(255, 208, 0, 0.2);
+}
+
+#play-btn:hover {
+    background: #ffd900;
+    color: #e9da0a;
+    box-shadow: 0 0 40px rgba(219, 187, 3, 0.6); /* แสงฟุ้งตอนชี้ */
+    transform: scale(1.05);
+}

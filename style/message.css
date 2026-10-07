@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. ROOT VARIABLES & BASE STYLES
+==================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                  
+    --cream: #F5EBE1;                       
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                        
+    --green-hover: #4a5c4b;                  
+    --light: #F5EBE1;                        
+    --white: #FFFFFF;                        
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+body { 
+    font-family: 'Kanit', sans-serif; 
+    background-color: var(--cream);
+    margin: 0; 
+    padding: 0;
+    color: var(--brown-dark);
+}
+
+/* ==================================================== 
+   2. CHAT CONTAINER & SIDEBAR (CONTACT LIST)
+==================================================== */
+.chat-container {
+    display: flex;
+    height: calc(100vh - 40px);
+    max-width: 1200px;
+    margin: 20px auto;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.sidebar {
+    background-color: var(--white);
+    width: 300px;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header { 
+    padding: 20px; 
+    background-color: var(--green); 
+    color: var(--cream); 
+    font-weight: 700; 
+    font-size: 18px;
+}
+
+.user-list {
+    background-color: var(--brown-light);
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    flex: 1;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+    color: var(--cream);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-item:hover, 
+.user-item.active { 
+    background-color: var(--white); 
+    color: var(--brown-light);
+    font-weight: 600;
+}
+
+.user-avatar { 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-right: 15px; 
+    border: 2px solid var(--pink);
+    flex-shrink: 0;
+}
+
+/* ==================================================== 
+   3. CHAT AREA & MESSAGES
+==================================================== */
+.chat-area { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    background: var(--white);
+}
+
+.chat-header { 
+    padding: 20px; 
+    border-bottom: 1px solid #eee; 
+    font-weight: 700; 
+    color: var(--brown-dark); 
+    font-size: 18px; 
+    display: flex; 
+    align-items: center;
+    background-color: var(--white);
+}
+
+.chat-messages { 
+    flex: 1; 
+    padding: 20px; 
+    overflow-y: auto; 
+    background-color: #fcf9f7; 
+    display: flex; 
+    flex-direction: column;
+}
+
+/* Chat Bubbles */
+.msg-bubble { 
+    max-width: 65%; 
+    padding: 12px 18px; 
+    border-radius: 18px; 
+    margin-bottom: 15px; 
+    font-size: 14px; 
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    word-wrap: break-word;
+}
+
+.msg-customer { 
+    background-color: var(--pink); 
+    color: var(--white); 
+    align-self: flex-start; 
+    border-bottom-left-radius: 4px; 
+}
+
+.msg-admin { 
+    background-color: var(--brown-dark); 
+    color: var(--white); 
+    align-self: flex-end; 
+    border-bottom-right-radius: 4px; 
+}
+
+.msg-time { 
+    font-size: 11px; 
+    opacity: 0.75; 
+    margin-top: 6px; 
+    display: block; 
+}
+
+.msg-admin .msg-time { 
+    text-align: right; 
+}
+
+/* Empty State */
+.no-chat-selected { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    color: var(--brown-light); 
+    opacity: 0.6;
+    font-size: 18px; 
+    flex-direction: column;
+}
+
+/* ==================================================== 
+   4. CHAT INPUT AREA
+==================================================== */
+.chat-input-area { 
+    padding: 15px 20px; 
+    border-top: 1px solid #eee; 
+    display: flex; 
+    gap: 10px; 
+    background: var(--white);
+}
+
+.chat-input { 
+    flex: 1; 
+    padding: 12px 18px; 
+    border: 1px solid var(--cream); 
+    border-radius: 25px; 
+    font-family: 'Kanit', sans-serif; 
+    font-size: 14px;
+    outline: none;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+.chat-input:focus {
+    border-color: var(--pink);
+    background-color: var(--white);
+}
+
+.chat-send-btn { 
+    background-color: var(--pink); 
+    color: var(--white); 
+    border: none; 
+    padding: 0 25px; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.chat-send-btn:hover { 
+    background-color: var(--pink-hover); 
+}
+
+/* ==================================================== 
+   5. RESPONSIVE BREAKPOINTS
+==================================================== */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+        height: calc(100vh - 20px);
+        margin: 10px auto;
+        border-radius: 12px;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-height: 180px;
+    }
+
+    .msg-bubble {
+        max-width: 80%;
+    }
+}

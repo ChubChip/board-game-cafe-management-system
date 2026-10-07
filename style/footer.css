@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. ROOT VARIABLES
+==================================================== */
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                 
+    --cream: #F5EBE1;                       
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                       
+    --green-hover: #4a5c4b;                 
+    --light: #F5EBE1;                       
+    --white: #FFFFFF;                       
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+/* ==================================================== 
+   2. FOOTER LAYOUT & STRUCTURE
+==================================================== */
+.admin-footer {
+    background-color: var(--brown-dark);
+    width: 100%;
+    padding: 25px 30px;
+    box-shadow: var(--shadow);
+    margin-top: 30px;
+    border-radius: 25px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Helper Utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* ==================================================== 
+   3. FOOTER CONTENT & TYPOGRAPHY
+==================================================== */
+.footer-title {
+    color: var(--pink);
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.footer-subtitle {
+    color: var(--pink);
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.footer-col p {
+    color: var(--cream);
+    margin: 5px 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.copyright {
+    margin-top: 15px !important;
+    font-size: 0.8rem !important;
+    color: var(--pink) !important;
+    opacity: 0.8;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--pink-hover);
+}
+
+/* ==================================================== 
+   4. RESPONSIVE BREAKPOINTS
+==================================================== */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .text-left, .text-center, .text-right {
+        text-align: center;
+    }
+}

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. ROOT VARIABLES
+==================================================== */
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                 
+    --cream: #F5EBE1;                       
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                       
+    --green-hover: #4a5c4b;                 
+    --light: #F5EBE1;                       
+    --white: #FFFFFF;                       
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+/* ==================================================== 
+   2. MODAL OVERLAY & CONTAINER
+==================================================== */
+.history-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(93, 64, 56, 0.5); 
+    backdrop-filter: blur(3px);
+    padding: 20px;
+}
+
+.history-modal-content {
+    background-color: var(--cream);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+    color: var(--brown-dark);
+    position: relative;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-modal-content h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--brown-light);
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+
+.history-close {
+    color: var(--brown-light);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.history-close:hover {
+    color: var(--pink-hover);
+}
+
+/* ==================================================== 
+   3. HISTORY LIST & CARDS
+==================================================== */
+#historyList {
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.history-item {
+    background-color: var(--white);
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--pink);
+}
+
+.history-item p {
+    margin: 6px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.history-item span.label {
+    font-weight: bold;
+    color: var(--brown-dark);
+}
+
+.history-item span.value {
+    color: var(--brown-light);
+}
+
+/* Custom Scrollbar */
+#historyList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#historyList::-webkit-scrollbar-track {
+    background: var(--cream); 
+    border-radius: 10px;
+}
+
+#historyList::-webkit-scrollbar-thumb {
+    background: var(--brown-light); 
+    border-radius: 10px;
+}
+
+/* ==================================================== 
+   4. RESPONSIVE BREAKPOINTS
+==================================================== */
+@media (max-width: 600px) {
+    .history-modal-content {
+        padding: 20px 15px;
+        margin: 10% auto;
+    }
+
+    .history-modal-content h2 {
+        font-size: 20px;
+    }
+}

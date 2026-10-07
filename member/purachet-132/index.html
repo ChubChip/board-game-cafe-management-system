@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="overlay">
+  <div class="glass-card">
+    <button id="play-btn">Turn On Music</button>
+  </div>
+</div>
+<div>
+    <a href="myself.html">
+<button class="cybr-btn">
+  AboutMe<span aria-hidden>_</span>
+  <span aria-hidden class="cybr-btn__glitch">AboutMe</span>
+  <span aria-hidden class="cybr-btn__tag">ME</span>
+</button></a>
+<a href="advice.html">
+<button class="cybr-btn">
+  Advice<span aria-hidden>_</span>
+  <span aria-hidden class="cybr-btn__glitch">Advice</span>
+  <span aria-hidden class="cybr-btn__tag">Ad</span>
+</button></a>
+</div>
+
+<!-- </div>
+    <div class="container" >
+        <div class="box box-3">
+            <div class="cover"><img src="pic/main.jpg" alt=""></div>
+            <a href="myself.html"><button><div></div></button></a>
+            <h1>ให้คลิกขวาเเล้วกด new tab เพิ่มเปิดหน้าต่อไปเท่านั้นนน!</h1>
+        </div>
+        <div class="box box-4">
+            <div class="cover"><img src="pic/invest.png" alt=""></div>
+            <a href="advice.html"><button><div></div></button></a>
+        </div>
+    </div>
+</div> -->
+
+<audio id="myAudio" src="music/Desktop 2026.02.18 - 11.21.02.02.mp3" loop></audio>
+
+<script>
+        const btn = document.getElementById('play-btn');
+        const overlay = document.getElementById('overlay');
+        const audio = document.getElementById('myAudio');
+
+        btn.addEventListener('click', function() {
+            // 1. เล่นเพลง
+            audio.play().catch(error => console.log("Autoplay บล็อกอยู่:", error));
+
+            // 2. ทำให้ Overlay ค่อยๆ จางลง
+            overlay.style.opacity = '0';
+
+            // 3. รอให้จางจนจบ (0.8วินาทีตาม CSS) แล้วลบออกจากการมองเห็นทั้งหมด
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 800);
+        });
+    </script>
+</body>
+</html>

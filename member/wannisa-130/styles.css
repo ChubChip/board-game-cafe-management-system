@@ -1,0 +1,219 @@
+/* กำหนดสีหลักเพื่อให้เปลี่ยนง่ายๆ */
+:root {
+    --bg-color: #3b3b3b;
+    --dark-card: #2c2c2c;
+    --pink-color: #d8a1ab; /* สีชมพูหม่น */
+    --text-light: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif; /* ใช้ฟอนต์น่ารักๆ */
+}
+
+body {
+    background-image: url('img/paper.jpg');
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.title-section h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.title-section h1 span {
+    color: var(--pink-color);
+}
+.title-section p {
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.header-buttons .btn {
+    text-decoration: none;
+    color: var(--text-light);
+    background-color: #555;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+.header-buttons .pink-btn {
+    background-color: var(--pink-color);
+}
+.header-buttons .btn:hover {
+    filter: brightness(1.1);
+}
+
+/* Layout Grid */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ทรงของกล่อง (Cards) */
+.card {
+    border-radius: 35px; /* ขอบโค้งมนมากเป็นพิเศษ */
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+.dark-card {
+    background-color: var(--dark-card);
+}
+.pink-card {
+    background-color: var(--pink-color);
+    color: #fff;
+}
+.pink-text {
+    color: var(--pink-color);
+}
+
+/* กล่อง Wiki (ด้านซ้าย) */
+.wiki-box h2 {
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+.mini-gallery {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.mini-gallery img {
+    border-radius: 10px;
+    width: 30%;
+    object-fit: cover;
+}
+.profile-intro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.round-profile {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+.text-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.video-placeholder img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* คอลัมน์ขวา */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* กล่อง Chat */
+.chat-box {
+    width: 70%;
+    align-self: flex-start;
+}
+.chat-bubbles {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.bubble {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    max-width: 80%;
+}
+.their-bubble {
+    background-color: #444;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+.my-bubble {
+    background-color: var(--pink-color);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+/* กล่อง Welcome (ชมพู) */
+.welcome-box {
+    width: 90%;
+}
+.welcome-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.small-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.gallery-grid {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+.gallery-grid img {
+    width: 23%;
+    border-radius: 15px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+/* รูปตัวละครขนาดใหญ่ขวาล่าง */
+.main-character {
+    position: absolute;
+    bottom: -50px;
+    right: -100px;
+    height: 85%;
+    max-height: 700px;
+    z-index: 10;
+    pointer-events: none; /* ทำให้คลิกทะลุรูปไปโดนปุ่มด้านหลังได้ */
+    filter: drop-shadow(-10px 10px 15px rgba(0,0,0,0.5));
+}
+
+/* ตอบสนองหน้าจอมือถือ */
+@media (max-width: 768px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+    }
+    .chat-box, .welcome-box {
+        width: 100%;
+    }
+    .main-character {
+        display: none; /* ซ่อนรูปใหญ่ในมือถือเพื่อไม่ให้บังเนื้อหา */
+    }
+}

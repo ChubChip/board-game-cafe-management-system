@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. ROOT VARIABLES & BASE STYLES
+==================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --brown-dark: #5D4038;
+    --brown-light: #9B6E60;
+    --cream: #F5EBE1;
+    --pink: #E5989B;
+    --pink-hover: #c58284;
+    --green: #576d5c;
+    --green-hover: #4a5c4b;
+    --light: #F5EBE1;
+    --white: #FFFFFF;
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+body {
+    background-color: var(--brown-light); 
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 10px;
+    color: var(--brown-dark);
+}
+
+/* ==================================================== 
+   2. MAIN CONTAINER & HEADING
+==================================================== */
+.container-box {
+    background-color: var(--cream);
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    color: var(--brown-dark);
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+/* ==================================================== 
+   3. TABLE CARDS LAYOUT
+==================================================== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    min-width: 600px; /* ป้องกันตารางบีบตัวเกินไปบนมือถือ */
+}
+
+thead th {
+    color: var(--brown-dark);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+tbody tr {
+    background-color: var(--white);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+tbody td {
+    padding: 15px 20px;
+    color: var(--brown-dark);
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+/* Rounded corners for card rows */
+tbody tr td:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+tbody tr td:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+}
+
+/* Profile Image */
+.user-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--cream);
+}
+
+/* Buttons */
+.btn-edit, .btn-delete {
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+    color: var(--white);
+    margin: 2px 4px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-edit {
+    background-color: var(--green);
+}
+
+.btn-edit:hover {
+    background-color: var(--green-hover);
+    transform: scale(1.03);
+}
+
+.btn-delete {
+    background-color: var(--pink);
+}
+
+.btn-delete:hover {
+    background-color: var(--pink-hover);
+    transform: scale(1.03);
+}
+
+/* ==================================================== 
+   4. MODAL POP-UP & FORM
+==================================================== */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 85vh;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    overflow-y: auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--brown-dark);
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--brown-dark);
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    color: var(--brown-dark);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    border-color: var(--brown-light);
+}
+
+.btn-save {
+    background-color: var(--green); 
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-save:hover {
+    background-color: var(--green-hover);
+    transform: scale(1.02);
+}
+
+/* ==================================================== 
+   5. RESPONSIVE BREAKPOINTS
+==================================================== */
+@media (max-width: 768px) {
+    .container-box {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+
+    h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}

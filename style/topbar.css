@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. ROOT VARIABLES & BASE STYLES
+==================================================== */
+:root {
+    --brown-dark: #5D4038;
+    --brown-light: #9B6E60;
+    --cream: #F5EBE1;
+
+    --pink: #E5989B;
+    --pink-hover: #c58284;
+    --green: #576d5c;
+    --green-hover: #4a5c4b;
+
+    --light: #F5EBE1;
+    --white: #FFFFFF;
+
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* ==================================================== 
+   2. ICONS & UTILITIES
+==================================================== */
+.icon-user, .icon-history, .icon-favorite {
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icon-user:hover, .icon-history:hover, .icon-favorite:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* ==================================================== 
+   3. NAVBAR LAYOUT
+==================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    position: sticky;                  
+    top: 0;                            
+    z-index: 999;                     
+    background-color: var(--cream);    
+    padding: 15px 20px;                   
+}
+
+.nav-left, .nav-right, .auth-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    position: relative; 
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--brown-dark);
+    font-weight: 300;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--brown-light);
+    font-weight: 500;
+}
+
+.nav-menu a.active {
+    border-bottom: 2px solid var(--brown-dark);
+    padding-bottom: 2px;
+    font-weight: 600;
+}
+
+/* ==================================================== 
+   4. AUTH BUTTONS (Login/Reg/Logout)
+==================================================== */
+.btn-register {
+    background: var(--brown-dark);
+    color: var(--cream);
+    border-radius: 50px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 130px;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    border: 1px solid var(--brown-dark) !important;
+    background: transparent !important;
+    color: var(--brown-dark) !important;
+    border-radius: 50px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 130px;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover, .btn-register:hover {
+    background: var(--pink-hover) !important;
+    color: var(--white) !important;
+    border-color: var(--pink-hover) !important;
+    font-weight: bold;
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: #dc3545;
+    color: var(--white);
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #dc3545;
+    height: 40px;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ==================================================== 
+   5. PROFILE MODAL
+==================================================== */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(93, 64, 56, 0.5);
+    backdrop-filter: blur(2px);
+    overflow-y: auto; 
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 30px;
+    border: none;
+    width: 90%;
+    max-width: 450px; 
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    margin: 5vh auto; 
+    max-height: 85vh; 
+    overflow-y: auto; 
+}
+
+.close {
+    color: var(--brown-light);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover { 
+    color: var(--brown-dark); 
+}
+
+.input-group { 
+    margin-bottom: 15px; 
+}
+
+.input-group label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: var(--brown-dark); 
+    font-size: 14px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--brown-dark);
+}
+
+input[type="file"] { 
+    display: none; 
+}
+
+.custom-file-upload {
+    border: 1px solid var(--light);
+    display: inline-block;
+    padding: 8px 16px;
+    cursor: pointer;
+    background: var(--brown-dark);
+    color: var(--white);
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.custom-file-upload:hover {
+    background: var(--brown-light);
+}
+
+.btn-save {
+    width: 100%;
+    background-color: var(--green);
+    color: var(--white);
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-save:hover { 
+    background-color: var(--green-hover); 
+}
+
+/* ==================================================== 
+   6. SEARCH MODAL
+==================================================== */
+.search-modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(93, 64, 56, 0.6); 
+    backdrop-filter: blur(2px);
+    align-items: flex-start; 
+    justify-content: center; 
+    padding-top: 5vh; 
+    overflow-y: auto; 
+}
+
+.search-modal.active { 
+    display: flex; 
+}
+
+.search-modal-content { 
+    background-color: var(--cream); 
+    padding: 30px; 
+    border-radius: 15px; 
+    width: 90%; 
+    max-width: 500px; 
+    position: relative; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+    max-height: 85vh; 
+    overflow-y: auto; 
+}
+
+.close-search { 
+    position: absolute; 
+    top: 15px; 
+    right: 20px; 
+    font-size: 28px; 
+    font-weight: bold; 
+    color: var(--brown-dark); 
+    cursor: pointer; 
+    transition: color 0.2s ease;
+}
+
+.close-search:hover { 
+    color: #E63946; 
+}
+
+#searchInput { 
+    width: 100%; 
+    padding: 12px 15px; 
+    margin-top: 15px; 
+    border: 2px solid var(--brown-dark); 
+    border-radius: 8px; 
+    font-size: 16px; 
+    box-sizing: border-box; 
+    outline: none;
+}
+
+.search-results-container { 
+    margin-top: 15px; 
+    max-height: 300px; 
+    overflow-y: auto; 
+}
+
+.search-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    padding: 10px; 
+    border-bottom: 1px solid var(--cream); 
+    text-decoration: none; 
+    color: #333; 
+    transition: background 0.2s; 
+    border-radius: 8px; 
+}
+
+.search-item:hover { 
+    background-color: var(--white); 
+}
+
+.search-item img { 
+    width: 50px; 
+    height: 50px; 
+    object-fit: cover; 
+    border-radius: 5px; 
+}
+
+/* ==================================================== 
+   7. SWEETALERT OVERRIDE & RESPONSIVE BREAKPOINTS
+==================================================== */
+.swal2-container {
+    z-index: 99999 !important;
+}
+
+@media (max-width: 992px) {
+    .nav-menu {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .auth-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-register, .btn-login {
+        min-width: 110px;
+        padding: 8px 15px;
+    }
+}

@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                  
+    --cream: #F5EBE1;                       
+
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                        
+    --green-hover: #4a5c4b;                  
+
+    --light: #F5EBE1;                        
+    --white: #FFFFFF;                        
+
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+body {
+    margin: 0;
+    padding: 20px 10px;
+    background-image: url('../img/web/WrinkledPaper.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.booking-wrapper {
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: var(--brown-dark);
+    box-shadow: var(--shadow);
+}
+
+.booking-card {
+    background: var(--pink);
+    width: 100%;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.card-header h2 { 
+    margin-top: 0; 
+    margin-bottom: 15px; 
+    color: #333; 
+    font-size: 1.5rem;
+}
+
+.table-name {
+    color: var(--green-hover);
+    font-weight: bold;
+}
+
+/* Spec Table Box */
+.table-spec-box {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--green);
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.table-desc {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Form Elements */
+.form-group { 
+    margin-bottom: 18px; 
+    position: relative;
+}
+
+.form-group label { 
+    display: block; 
+    margin-bottom: 6px; 
+    font-weight: bold; 
+    color: #444; 
+    font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--cream);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Kanit', sans-serif;
+}
+
+.form-row { 
+    display: flex; 
+    gap: 15px; 
+    flex-wrap: wrap; 
+}
+
+.form-row .form-group { 
+    flex: 1; 
+    min-width: 140px; 
+}
+
+/* Policy & Buttons */
+.booking-policy {
+    background: var(--brown-light);
+    color: var(--cream);
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-confirm {
+    width: 100%;
+    padding: 14px;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    font-family: 'Kanit', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-confirm:hover {
+    background: var(--green-hover);
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--brown-dark);
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+/* Custom Calendar UI */
+.calendar-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border: 2px solid var(--brown-light);
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--brown-dark);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.calendar-btn {
+    background: var(--cream);
+    border: none;
+    color: var(--brown-dark);
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.calendar-btn:hover { 
+    background: var(--pink); 
+    color: var(--white); 
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.calendar-day-header {
+    font-size: 11px;
+    color: var(--brown-light);
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.calendar-day {
+    padding: 6px 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    background: var(--light);
+    color: var(--brown-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.calendar-day:hover:not(.disabled) { 
+    background: var(--green); 
+    color: var(--white); 
+}
+
+.calendar-day.disabled { 
+    background: #e0e0e0; 
+    color: #999; 
+    cursor: not-allowed; 
+}
+
+.day-status { 
+    font-size: 9px; 
+    margin-top: 2px; 
+}
+
+/* ========================================= 
+   RESPONSIVE BREAKPOINTS
+========================================= */
+@media (max-width: 480px) {
+    .booking-wrapper {
+        padding: 15px 10px;
+    }
+
+    .booking-card {
+        padding: 15px;
+    }
+
+    .spec-item {
+        flex-direction: column;
+        gap: 2px;
+    }
+}

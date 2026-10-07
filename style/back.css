@@ -1,0 +1,33 @@
+:root {
+    --brown-dark: #5D4038;                  /* var(--brown-dark); */
+    --brown-light:#9B6E60;                  /* var(--brown-light); */
+    --cream: #F5EBE1;                       /* var(--cream); */
+
+    --pink: #E5989B;                        /* var(--pink); */
+    --pink-hover: #c58284;                  /* var(--pink-hover); */
+    --green:#576d5c;                        /* var(--green); */
+    --green-hover:#4a5c4b;                  /* var(--green-hover); */
+
+    --light:#F5EBE1;                        /* var(--light); */
+    --white:#FFFFFF;                        /* var(--white); */
+
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   /* var(--shadow); */
+}
+
+.back-btn {
+    background-color: transparent;
+    color: var(--brown-dark);
+    border: 2px solid var(--brown-dark);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+.back-btn:hover {
+    background-color: var(--brown-dark);
+    color: var(--cream);
+}

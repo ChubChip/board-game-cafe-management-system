@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+:root {
+    --brown-dark: #5D4038;
+    --brown-light: #9B6E60;
+    --cream: #F5EBE1;
+    --pink: #E5989B;
+    --pink-hover: #c58284;
+    --green: #576d5c;
+    --green-hover: #4a5c4b;
+    --light: #F5EBE1;
+    --white: #FFFFFF;
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+body { 
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* แก้ปัญหาสโครลหน้าจอแล้วส่วนบนหลุดขอบ */
+    min-height: 100vh;
+    padding: 20px 10px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ========================================= 
+   HEADER
+========================================= */
+.header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-left { 
+    display: flex; 
+    align-items: center;
+    gap: 12px; 
+}
+
+.icon-box { 
+    width: 40px; 
+    height: 40px; 
+    background-color: var(--pink); 
+    border-radius: 10px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: var(--white); 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.header-title { 
+    color: var(--brown-dark); 
+    font-size: 28px; 
+    font-weight: 600; 
+}
+
+.btn-logout { 
+    background-color: #E63946; 
+    color: var(--white); 
+    padding: 8px 20px; 
+    border-radius: 20px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: background-color 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: #d62828;
+}
+
+/* ========================================= 
+   GRID LAYOUT
+========================================= */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 0.8fr; 
+    gap: 20px;
+}
+
+.col-left { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.card-block-brown { 
+    background-color: var(--brown-dark); 
+    border-radius: 20px; 
+    padding: 20px; 
+    color: var(--white); 
+    box-shadow: var(--shadow); 
+}
+
+.card-block-green { 
+    background-color: var(--green); 
+    border-radius: 20px; 
+    padding: 20px; 
+    color: var(--white); 
+    box-shadow: var(--shadow); 
+}
+
+.block-title { 
+    font-size: 18px; 
+    margin-bottom: 15px; 
+    font-weight: 600; 
+}
+
+/* Total Cards Sub-grid */
+.total-cards { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+}
+
+.total-cards .revenue-card { 
+    grid-row: span 2; 
+    background-color: var(--pink); 
+    border-radius: 15px; 
+    padding: 20px 10px; 
+    text-align: center; 
+    color: var(--brown-dark); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.total-cards .small-card { 
+    background-color: var(--pink-hover);
+    border-radius: 15px; 
+    padding: 10px; 
+    text-align: center; 
+    color: var(--white); 
+}
+
+.icon-circle { 
+    width: 40px; 
+    height: 40px; 
+    background-color: var(--brown-dark); 
+    color: var(--white); 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 0 auto 5px auto; 
+}
+
+.amount { 
+    font-size: 22px; 
+    font-weight: bold; 
+    color: var(--brown-dark); 
+}
+
+.count { 
+    font-size: 18px; 
+    font-weight: bold; 
+    color: var(--white); 
+    cursor: pointer; 
+}
+
+/* Age Progress Bar */
+.age-bar-container { 
+    display: flex; 
+    height: 25px; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    background-color: #ddd; 
+    margin-bottom: 15px; 
+}
+
+.age-bar-segment { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: white; 
+    font-size: 11px; 
+    font-weight: bold; 
+}
+
+.age-legend { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    font-size: 13px; 
+    color: var(--cream); 
+}
+
+.age-legend div { 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+}
+
+.age-legend span { 
+    display: inline-block; 
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+}
+
+.action-btns { 
+    display: flex; 
+    gap: 10px; 
+}
+
+.btn-other { 
+    flex: 1; 
+    background-color: var(--cream); 
+    color: var(--brown-dark); 
+    text-align: center; 
+    padding: 12px 0; 
+    border-radius: 12px; 
+    text-decoration: none; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border: none; 
+    cursor: pointer; 
+}
+
+/* ========================================= 
+   CENTER COLUMN (CHARTS)
+========================================= */
+.col-center { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.chart-card { 
+    background-color: var(--white); 
+    border-radius: 20px; 
+    padding: 15px; 
+    box-shadow: var(--shadow); 
+    flex: 1; 
+    position: relative; 
+}
+
+.chart-title { 
+    color: var(--brown-dark); 
+    font-weight: 600; 
+    margin-bottom: 10px; 
+    text-align: left; 
+}
+
+.canvas-container { 
+    height: 180px; 
+    position: relative;
+}
+
+.canvas-line-container { 
+    height: 200px; 
+    position: relative;
+}
+
+/* ========================================= 
+   RIGHT COLUMN
+========================================= */
+.col-right {
+    background-color: var(--brown-dark);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--shadow);
+}
+
+.col-right h3 { 
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.update-btn { 
+    background-color: var(--pink); 
+    width: 100%; 
+    padding: 20px 10px; 
+    border-radius: 15px; 
+    text-align: center; 
+    color: var(--brown-dark); 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 16px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+    transition: 0.2s; 
+    box-shadow: var(--shadow); 
+}
+
+.update-btn:hover { 
+    background-color: var(--pink-hover); 
+}
+
+.update-btn svg { 
+    width: 40px; 
+    height: 40px; 
+    fill: var(--brown-dark); 
+}
+
+/* ========================================= 
+   RESPONSIVE BREAKPOINTS
+========================================= */
+/* แท็บเล็ต (<= 992px) */
+@media (max-width: 992px) {
+    .main-grid {
+        grid-template-columns: 1fr 1fr; /* ปรับเป็น 2 คอลัมน์ */
+    }
+
+    .col-right {
+        grid-column: span 2; /* ย้ายปุ่มคอลัมน์ขวามาไว้ด้านล่างสุดเต็มความกว้าง */
+    }
+}
+
+/* มือถือ (<= 600px) */
+@media (max-width: 600px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* ยุบเหลือ 1 คอลัมน์เดี่ยว */
+    }
+
+    .col-right {
+        grid-column: span 1;
+    }
+
+    .total-cards {
+        grid-template-columns: 1fr; /* ปรับการ์ดตัวเลขสรุปเป็นเรียงเดี่ยว */
+    }
+
+    .total-cards .revenue-card {
+        grid-row: span 1;
+    }
+
+    .header-title {
+        font-size: 22px;
+    }
+}

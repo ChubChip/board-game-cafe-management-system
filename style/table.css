@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. ROOT VARIABLES & BASE STYLES
+==================================================== */
+:root {
+    --brown-dark: #5D4038;
+    --brown-light: #9B6E60;
+    --cream: #F5EBE1;
+
+    --pink: #E5989B;
+    --pink-hover: #c58284;
+    --green: #576d5c;
+    --green-hover: #4a5c4b;
+
+    --light: #F5EBE1;
+    --white: #FFFFFF;
+
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--light) !important;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color: var(--brown-dark) !important;
+    margin: 0;
+}
+
+/* ==================================================== 
+   2. HEADER & TABLE CONTAINER
+==================================================== */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95vw;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+
+/* Wrapper สำหรับรองรับ Horizontal Scroll บนหน้าจอมือถือ */
+.table-container-wrapper {
+    width: 95vw;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-container {
+    background-image: url('../img/web/WrinkledPaper.jpg');
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
+    gap: 12px;
+    width: 100%;
+    min-width: 750px;
+    height: 85vh;
+    min-height: 550px;
+    margin: 10px 0;
+    padding: 30px;
+    border-radius: 40px;
+
+    position: relative;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.table, .counter, .boardgame {
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ==================================================== 
+   3. BOARD GAME AREA & COUNTER AREA
+==================================================== */
+.boardgame {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 9;
+
+    color: var(--brown-dark);
+    background-color: var(--pink);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boardgame:hover {
+    background-color: var(--pink-hover);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.counter {
+    background-color: var(--brown-dark);
+    box-shadow: var(--shadow);
+    color: var(--cream);
+
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 7;
+    grid-row-start: 9;
+    border-radius: 15px;
+}
+
+/* ==================================================== 
+   4. TABLE AREA & STATUS STYLES 
+==================================================== */
+.table {
+    background-color: var(--cream); 
+    color: var(--brown-dark);       
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.table:hover {
+    transform: translateY(-2px);
+}
+
+/* Available Status (Green) */
+.table.available {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.table.available:hover {
+    background-color: var(--green-hover);
+    transform: scale(1.05);
+}
+
+/* Booked Status (Pink) */
+.table.booked {
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+.table.booked:hover {
+    background-color: var(--pink-hover);
+    transform: scale(1.05);
+}
+
+/* Inner Text Styles for Tables */
+.t-name {
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.t-status {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* ==================================================== 
+   5. GRID POSITIONING (TABLES & SPACES)
+==================================================== */
+.table1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+}
+
+.table2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+}
+
+.table3 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 7;
+}
+
+.table4 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 9;
+}
+
+.table5 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 7;
+    grid-row-start: 4;
+}
+
+.table6 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 9;
+    grid-row-start: 4;
+}
+
+.table7 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 7;
+    grid-row-start: 7;
+}
+
+.table8 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 9;
+    grid-row-start: 7;
+}
+
+.table9 {
+    grid-column: span 5 / span 5;
+    grid-row: span 3 / span 3;
+    grid-column-start: 1;
+    grid-row-start: 5;
+}
+
+/* SPACE PLACEHOLDERS */
+.space {
+    visibility: hidden;
+}
+
+.space1 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+}
+
+.space2 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 6;
+}
+
+.space3 {
+    grid-row: span 8 / span 8;
+    grid-column-start: 8;
+}
+
+.space4 {
+    grid-column-start: 7;
+    grid-row-start: 3;
+}
+
+.space5 {
+    grid-column-start: 9;
+    grid-row-start: 3;
+}
+
+.space6 {
+    grid-column-start: 7;
+    grid-row-start: 6;
+}
+
+.space7 {
+    grid-column-start: 9;
+    grid-row-start: 6;
+}
+
+.space8 {
+    grid-column: span 6 / span 6;
+    grid-column-start: 1;
+    grid-row-start: 4;
+}
+
+.space9 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 6;
+    grid-row-start: 5;
+}
+
+.space10 {
+    grid-column: span 6 / span 6;
+    grid-row-start: 8;
+}
+
+.space11 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 6;
+    grid-row-start: 9;
+}
+
+/* ==================================================== 
+   6. MODAL & FORM STYLES
+==================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 56, 0.5); 
+    backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--cream);
+    color: var(--brown-dark);
+    margin: auto;
+    padding: 25px 30px;
+    border: 2px solid var(--brown-light);
+    width: 90%;
+    max-width: 380px;
+    border-radius: 20px; 
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.close-btn {
+    color: var(--brown-light);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    transition: color 0.3s;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: var(--brown-dark);
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--brown-dark);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--brown-light);
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: var(--white);
+    color: var(--brown-dark);
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--brown-dark);
+}
+
+.save-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: var(--green);
+    color: var(--white);
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Kanit', sans-serif;
+}
+
+.save-btn:hover {
+    background-color: var(--green-hover);
+    transform: translateY(-2px);
+}
+
+.text-center { 
+    text-align: center; 
+}
+
+/* ==================================================== 
+   7. RESPONSIVE BREAKPOINTS
+==================================================== */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+    }
+
+    .table-container {
+        padding: 15px;
+        gap: 8px;
+        border-radius: 25px;
+    }
+
+    .t-name {
+        font-size: 0.85rem;
+    }
+
+    .t-status {
+        font-size: 0.65rem;
+        padding: 2px 5px;
+    }
+}

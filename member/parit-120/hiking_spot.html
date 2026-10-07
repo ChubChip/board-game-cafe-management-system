@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIKING IS YOUR STYLE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/tooplate_living/tooplate-living-parallax.css">
+
+</head>
+<body>
+    <!-- UI Toggle Button - Always Visible -->
+    <button class="ui-toggle-btn" id="uiToggleBtn" aria-label="Toggle UI Visibility">
+        <svg viewBox="0 0 24 24" id="eyeIcon">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+        </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="ui-element">
+        <div class="logo">HIKING SPOT</div>
+        <nav id="mainNav">
+            <a href="index.html">หน้าหลัก</a>
+            <a onclick="openOverlay('about')">เกี่ยวกับเรา</a>
+            <a onclick="openOverlay('testimonials')">คำนิยม</a>
+            <a onclick="openOverlay('contact')">ติดต่อ</a>
+            <button class="fullscreen-btn" id="fullscreenBtn" aria-label="Toggle Fullscreen">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+            </button>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Slider -->
+    <div class="slider-wrapper">
+        <div class="slider-container" id="slider">
+            <!-- Slide 1 -->
+            <div class="slide active" data-index="0">
+                <div class="parallax-layer background-layer">
+                    <img src="images/ภูกระดึง.jpg" alt="Mountains">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://www.dasta.or.th/th/article/269" class="text-decoration-none"><h2>ภูกระดึง จ.เลย</h2></a>
+                    <br><p>ไฮไลท์: เป็น "โรงเรียนอนุบาลเดินป่า" ของใครหลายคน ทางเดินชัดเจน <br>มีร้านค้า ร้านอาหาร และสิ่งอำนวยความสะดวกข้างบนครบครัน <br>ไฮไลท์คือผาหล่มสัก (ดูพระอาทิตย์ตก) และเมเปิ้ลแดง (ช่วงธ.ค.-ม.ค.)</p>
+                    <br><p>สถานะ: ปกติจะเปิดถึงเดือนพฤษภาคม (ปิดพักป่า มิ.ย. - ก.ย.) ช่วงนี้อากาศเริ่มร้อนแต่ยังเที่ยวได้ครับ</p>
+                    <br><p>ระยะเวลา: 3 วัน 2 คืน</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" data-index="1">
+                <div class="parallax-layer background-layer">
+                    <img src="images/เขาล้อมหมวก.jpeg" alt="Forest">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://gogotripthailand.com/domestic-trip/%E0%B9%80%E0%B8%82%E0%B8%B2%E0%B8%A5%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%AB%E0%B8%A1%E0%B8%A7%E0%B8%81-%E0%B8%96%E0%B9%89%E0%B8%B3%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3/" class="text-decoration-none"><h2>เขาล้อมหมวก จ.ประจวบคีรีขันธ์</h2></a>
+                    <br><p>ไฮไลท์: เป็นภูเขาหินปูนริมทะเลที่ต้อง ปีนป่ายและไต่เชือก จริงจังในช่วงท้าย วิวข้างบนสวยมากเห็นอ่าว 3 อ่าว (อ่าวประจวบ อ่าวมะนาว อ่าวร้อย)</p>
+                    <br><p>สถานะ: เปิดเฉพาะวันหยุดยาว (3 วันติดกันขึ้นไป) เท่านั้นครับ สำหรับปี 2569 ต้องรอเช็คปฏิทินวันหยุด (เช่น ช่วงสงกรานต์ หรือวันหยุดราชการพิเศษ) ต้องลงทะเบียนหน้างานช่วงเช้า</p>
+                    <br><p>ระยะเวลา: ไปเช้า-เย็นกลับ (ใช้เวลาขึ้น-ลงประมาณ 2-3 ชม.)</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide" data-index="2">
+                <div class="parallax-layer background-layer">
+                    <img src="images/ภูสอยดาว.jpg" alt="Ocean">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://gogotripthailand.com/domestic-trip/%E0%B8%97%E0%B8%A3%E0%B8%B4%E0%B8%9B%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%99%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%A0%E0%B8%B9%E0%B8%AA%E0%B8%AD%E0%B8%A2%E0%B8%94%E0%B8%B2%E0%B8%A7-%E0%B8%A5%E0%B8%B2%E0%B8%99/" class="text-decoration-none"><h2>ภูสอยดาว จ.อุตรดิตถ์</h2></a>
+                    <br><p>ไฮไลท์: ลานสนสามใบที่ใหญ่ที่สุดในไทย และทุ่งดอกหงอนนาคสีม่วงที่จะบานสะพรั่งในช่วงหน้าฝน ทางเดินค่อนข้างชันและลื่นในช่วงแรก (เนินส่งญาติ)</p>
+                    <br><p>การเตรียมตัว: เตรียมเสื้อกันฝนและรองเท้าดอกยางลึกๆ ครับ</p>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide" data-index="3">
+                <div class="parallax-layer background-layer">
+                    <img src="images/ดอยหลวงเชียงดาว.jpg" alt="Sunset">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://wildlifesanctuaryfca16.com/chiangdao" class="text-decoration-none"><h2>ดอยหลวงเชียงดาว จ.เชียงใหม่</h2></a>
+                    <br><p>ไฮไลท์: ยอดเขาที่สูงเป็นอันดับ 3 ของไทย วิวอลังการเห็นยอดเขาหินปูนสลับซับซ้อน <br>ต้องจองคิวล่วงหน้ายากมาก</p>
+                    <br><p>สถานะ: ปกติปิดกลางเดือน ก.พ.</p>
+                </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide" data-index="4">
+                <div class="parallax-layer background-layer">
+                    <img src="images/ดอยม่อนจอง.jpg" alt="Flowers">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://gogotripthailand.com/domestic-trip/%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%99%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%A1%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%88%E0%B8%AD%E0%B8%87-%E0%B8%88-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83/" class="text-decoration-none"><h2>ดอยม่อนจอง จ.เชียงใหม่</h2></a>
+                    <br><p>ไฮไลท์: ทุ่งหญ้าสีทองบนสันเขา และหัวสิงห์ เป็นจุดชมพระอาทิตย์ตกที่โรแมนติกมาก ทางเดินไม่ยากมากแต่นั่งรถโฟร์วิลเข้าไปโหดหน่อย</p>
+                    <br><p>สถานะ: ปกติปิดกลางเดือน ก.พ.</p>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="slide" data-index="5">
+                <div class="parallax-layer background-layer">
+                    <img src="images/เขาช้างเผือก.jpg" alt="Desert">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://thai.tourismthailand.org/Attraction/%E0%B9%80%E0%B8%82%E0%B8%B2%E0%B8%8A%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%9C%E0%B8%B7%E0%B8%AD%E0%B8%81" class="text-decoration-none"><h2>เขาช้างเผือก จ.กาญจนบุรี</h2></a>
+                    <br><p>ไฮไลท์: สันคมมีด (สันวัดใจ) ที่หวาดเสียวและสวยงาม ทางแคบเดินเรียงเดี่ยว ต้องจองคิวผ่านระบบอุทยานฯ ซึ่งเต็มเร็วมาก</p>
+                    <br><p>สถานะ: ปกติเปิดช่วงสั้นๆ พ.ย. - ม.ค.</p>
+                </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="slide" data-index="6">
+                <div class="parallax-layer background-layer">
+                    <img src="images/โมโกจู.jpg" alt="Waterfall">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://thai.tourismthailand.org/Attraction/%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%82%E0%B8%B2%E0%B9%82%E0%B8%A1%E0%B9%82%E0%B8%81%E0%B8%88%E0%B8%B9" class="text-decoration-none"><h2>โมโกจู จ.กำแพงเพชร</h2></a>
+                    <br><p>ไฮไลท์: "หินเรือใบ" สัญลักษณ์ของผู้พิชิต เดินไกลมาก (ไป-กลับเกือบ 60 กม.) ใช้เวลา 4-5 วัน ต้องเตรียมร่างกายดีมากๆ</p>
+                </div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="slide" data-index="7">
+                <div class="parallax-layer background-layer">
+                    <img src="images/เขาหลวง.jpg" alt="Wildlife">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="https://gogotripthailand.com/domestic-trip/%E0%B9%80%E0%B8%82%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87%E0%B8%AA%E0%B8%B8%E0%B9%82%E0%B8%82%E0%B8%97%E0%B8%B1%E0%B8%A2/" class="text-decoration-none"><h2>เขาหลวง จ.สุโขทัย</h2></a>
+                    <br><p>ไฮไลท์: ระยะทางเดินสั้น (ประมาณ 3-4 กม.) แต่ "ชันมาก" ตลอดทาง <br>ข้างบนมีลานกางเต็นท์วิวสวย สามารถเห็นทะเลหมอกและทุ่งหญ้าเขียวขจี</p>
+                    <br><p>สถานะ: มักเปิดตลอดปี (อาจมีปิดช่วงสั้นๆ ควรเช็คกับอุทยานฯ รามคำแหง) <br>เหมาะกับคนอยากทดสอบกำลังขา</p>
+                    <br><p>ระยะเวลา: 2 วัน 1 คืน</p>
+                </div>
+            </div>
+
+            <!-- Slide 9 -->
+            <div class="slide" data-index="8">
+                <div class="parallax-layer background-layer">
+                    <img src="images/เขาหงอนนาค.jpg" alt="Mountain Peak">
+                </div>
+                <div class="image-info ui-element">
+                    <a href="http://www.nongtalay.go.th/traveler1.php" class="text-decoration-none"><h2>เขาหงอนนาค จ.กระบี่</h2></a>
+                    <br><p>ไฮไลท์: ระยะทาง เดินเท้าประมาณ 3.7 กิโลเมตร (ใช้เวลาเดินขึ้น 2-3 ชั่วโมง) แต่ชันมากตลอดทาง<br>ในขณะที่ภูเขาอื่นให้วิวหมอกหรือทิวเขา แต่ที่นี่คุณจะได้เห็น "วิวทะเลอันดามันมุมสูง" <br>แบบ 360 องศา เห็นเกาะห้อง เกาะยาว และภูเขาหินปูนสลับซับซ้อน ตัดกับน้ำทะเลสีฟ้า ซึ่งหาดูได้ยากจากยอดดอยทั่วไป</p>
+                    <br><p>ระยะเวลา: ไม่มีปิดฤดูกาลเหมือนภูเขาทางภาคเหนือ</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-arrow prev ui-element">‹</div>
+            <div class="nav-arrow next ui-element">›</div>
+
+            <!-- Dots -->
+            <div class="dots-container ui-element">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+                <span class="dot" data-slide="6"></span>
+                <span class="dot" data-slide="7"></span>
+                <span class="dot" data-slide="8"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Parallax Shapes -->
+    <div class="parallax-shape shape-1 ui-element"></div>
+    <div class="parallax-shape shape-2 ui-element"></div>
+
+    <!-- Play/Pause Button -->
+    <button class="play-pause-btn ui-element" id="playPauseBtn" aria-label="Play/Pause Slideshow">
+        <svg viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+        </svg>
+    </button>
+
+    <div class="progress-bar-container ui-element">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="duration-controls ui-element">
+        <button class="duration-btn" id="decreaseDuration" aria-label="Decrease Duration">−</button>
+        <div class="duration-display" id="durationDisplay">5<span>s</span></div>
+        <button class="duration-btn" id="increaseDuration" aria-label="Increase Duration">+</button>
+    </div>
+
+    <div class="overlay" id="aboutOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('about')">×</button>
+            <h2>เกี่ยวกับเรา</h2>
+            <p>ยินดีต้อนรับสู่ HIKING SPOT แพลตฟอร์มรวบรวมข้อมูลเส้นทางปีนเขาและแหล่งท่องเที่ยวธรรมชาติที่ครบถ้วนที่สุด</p>
+            <p>เป้าหมายของเรา: เรามุ่งมั่นที่จะเป็นศูนย์กลางข้อมูล สำหรับนักปีนเขาและผู้รักธรรมชาติ โดยนำเสนอข้อมูลเชิงลึกที่ผ่านการตรวจสอบและคัดกรองแล้ว ทั้งเรื่องพิกัด GPS, สภาพภูมิประเทศ, ระดับความยากง่าย และอุปกรณ์ที่จำเป็น เพื่อช่วยให้คุณวางแผนการเดินทางได้อย่างแม่นยำและปลอดภัย</p>
+            <p>ทำไมต้องเลือกเรา? 
+                <br><strong>ข้อมูลแม่นยำ:</strong> อัปเดตสถานะภูเขาและฤดูกาลเปิด-ปิดจากหน่วยงานที่เกี่ยวข้อง 
+                <br><strong>ครอบคลุม:</strong> รวบรวมเส้นทางตั้งแต่ระดับเดินเล่นชมธรรมชาติ ไปจนถึงยอดเขาสูงเสียดฟ้า 
+                <br><strong>ชุมชนคุณภาพ:</strong> พื้นที่แลกเปลี่ยนประสบการณ์จริงจากนักเดินทาง เพื่อข้อมูลที่เป็นปัจจุบันที่สุด 
+                <br>ไม่ว่าเป้าหมายต่อไปของคุณคือที่ไหน ให้ HIKING SPOT ช่วยนำทางคุณไปถึงจุดหมายอย่างปลอดภัย
+            </p>
+        </div>
+    </div>
+
+    <div class="overlay" id="testimonialsOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('testimonials')">×</button>
+            <h2>คำนิยม</h2>
+            
+            <div class="testimonial-card">
+                <p>"ไม่เคยคิดว่าจะปีนเขาไหว จนมาเจอเว็บนี้ครับ! ข้อมูลช่วยให้ผมกล้าตัดสินใจเลือกภูเขาลูกแรกที่เหมาะกับตัวเอง ทำให้ทริปแรกของผมผ่านไปได้ด้วยดี ประทับใจมากครับ"</p>
+                <p class="author">คุณต้น, มือใหม่หัดเดินป่า ⭐⭐⭐⭐⭐</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p>"ชอบฟีเจอร์ 'ภูเขาสำหรับมือใหม่' มากค่ะ บอกจุดที่ต้องระวังชัดเจน ทำให้ผู้หญิงตัวคนเดียวอย่างเรากล้าแบกเป้ไปเที่ยว ขอบคุณที่ทำให้เราค้นพบงานอดิเรกใหม่นะคะ"</p>
+                <p class="author">คุณพลอย, นักเดินทางสาย Solo ⭐⭐⭐⭐⭐</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p>"จุดพักแรมแม่นยำมากครับ ช่วยให้ผมคำนวณการใช้น้ำและพลังงานได้ดีเยี่ยม สำหรับสายเทรลระยะไกล เว็บนี้คือดีที่สุดในไทยตอนนี้เลย"</p>
+                <p class="author">พี่เอก, นักวิ่งเทรลและนักปีนเขา ⭐⭐⭐⭐⭐</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p>"สิ่งที่ชอบที่สุดคือการอัปเดตสถานะ 'ปิด/เปิด' ของอุทยานที่รวดเร็ว ช่วยประหยัดเวลาเช็กข่าวเองไปได้เยอะ แถมพิกัด GPS ตรงเป๊ะ ไม่พาหลงเข้าป่าแน่นอน 555"</p>
+                <p class="author">คุณแม็กซ์, สายเดินป่าระยะไกล ⭐⭐⭐⭐</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="contactOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('contact')">×</button>
+            <h2>ติดต่อพวกเรา</h2>
+            <p>หากพบปัญหาในการใช้งาน หรือต้องการคำเเนะนำคุณสามารถส่งข้อความหาพวกเราได้.</p>
+            
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <label>ชื่อ-นามสกุล</label>
+                <input type="text" name="name" placeholder="ชื่อของคุณ" required>
+                
+                <label>อีเมล</label>
+                <input type="email" name="email" placeholder="อีเมลของคุณ@example.com" required>
+                
+                <label>หัวข้อ</label>
+                <input type="text" name="subject" placeholder="หัวข้อเกี่ยวกับอะไร" required>
+                
+                <label>รายละเอียด</label>
+                <textarea name="message" placeholder="บอกรายละเอียดเพิ่มเติม" required></textarea>
+                
+                <button type="submit" class="submit-btn">ส่งข้อความ</button>
+            </form>
+            
+            <div class="contact-address">
+                <h3>พบกับพวกเราได้ที่</h3>
+                <p>38 หมู่ที่ 8 ถนน หาดเจ้าสำราญ<br>
+                ตำบล นาวุ้ง อำเภอเมืองเพชรบุรี เพชรบุรี 76000<br>
+                ประเทศไทย<br>
+                <a href="tel:032 708 605">+66 32 708 605</a> | <a href="664244120@mail.pbru.ac.th">664244120@mail.pbru.ac.th</a></p>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.467979909762!2d99.9756148!3d13.0695005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30fd214d102991d1%3A0xf0223bd0b5f3290!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4Lij4Liy4LiK4Lig4Lix4LiP4LmA4Lie4LiK4Lij4Lia4Li44Lij4Li1!5e0!3m2!1sth!2sth!4v1772002840979!5m2!1sth!2sth" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0; border-radius: 12px; opacity: 0.9;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="overlay-map">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="privacyOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('privacy')">×</button>
+            <h2>Privacy Policy</h2>
+            <p>HIKING SPOT เว็บไซต์ของเรา ให้ความสำคัญกับความเป็นส่วนตัวของผู้ใช้งาน อย่างยิ่ง นโยบายความเป็นส่วนตัวนี้จะอธิบายถึงวิธีการที่เราเก็บรวบรวม ใช้ เปิดเผย และปกป้องข้อมูลส่วนบุคคลของคุณเมื่อคุณเข้าใช้งานเว็บไซต์แนะนำภูเขาและเส้นทางปีนเขาของเรา</p>
+            
+            <p><strong>เราอาจเก็บรวบรวมข้อมูลประเภทต่างๆ เพื่อปรับปรุงบริการและมอบประสบการณ์การใช้งานที่ดีที่สุดให้แก่คุณ ดังนี้:</strong> ข้อมูลส่วนบุคคล เมื่อคุณลงทะเบียนสมาชิก สมัครรับข่าวสาร หรือติดต่อเรา เราอาจขอข้อมูลที่ระบุตัวตนได้ | ข้อมูลการใช้งาน เราอาจเก็บข้อมูลเกี่ยวกับวิธีการที่คุณเข้าถึงเว็บไซต์ | ข้อมูลตำแหน่งที่ตั้ง เพื่อให้เราสามารถแนะนำ "ภูเขาใกล้คุณ" หรือเส้นทางปีนเขาในบริเวณที่คุณอยู่ได้ เราอาจขอสิทธิ์เข้าถึงข้อมูลตำแหน่งที่ตั้ง (GPS) ของคุณ (เฉพาะเมื่อคุณอนุญาตเท่านั้น)</p>
+            
+            <p><strong>การใช้คุกกี้ (Cookies) และเทคโนโลยีติดตาม:</strong> เราใช้คุกกี้เพื่อจดจำการตั้งค่าของคุณ (เช่น ภาษาที่เลือก หรือภูเขาที่คุณบันทึกไว้ในรายการโปรด) และเพื่อวิเคราะห์สถิติผู้เข้าชม คุณสามารถตั้งค่าปฏิเสธคุกกี้ได้ผ่านเบราว์เซอร์ของคุณ แต่อาจทำให้ฟีเจอร์บางอย่าง (เช่น การบันทึกเส้นทางโปรด) ใช้งานไม่ได้</p>
+            
+            <p><strong>เราใช้ข้อมูลของคุณอย่างไร:</strong> เรานำข้อมูลที่ได้ไปใช้เพื่อวัตถุประสงค์ดังต่อไปนี้: เพื่อให้บริการ: แนะนำภูเขา, แสดงข้อมูลเส้นทาง, ระดับความยาก และรีวิว | เพื่อการติดต่อ: ส่งอีเมลแจ้งเตือนข่าวสาร หรือตอบกลับข้อซักถามของคุณ | เพื่อวิเคราะห์: ทำความเข้าใจว่าภูเขาลูกไหนได้รับความนิยม เพื่อนำไปปรับปรุงเนื้อหา | เพื่อความปลอดภัย: ตรวจสอบและป้องกันการใช้งานที่ผิดปกติ</p>
+            
+            <p><strong>การเปิดเผยข้อมูลต่อบุคคลภายนอก:</strong> เราจะไม่ขายข้อมูลส่วนบุคคลของคุณให้แก่บุคคลที่สาม อย่างไรก็ตาม เราอาจแบ่งปันข้อมูลในกรณีดังนี้: ผู้ให้บริการ: เช่น ผู้ให้บริการโฮสติ้ง, ระบบส่งอีเมล หรือเครื่องมือวิเคราะห์ (เช่น Google Analytics) ซึ่งช่วยให้เว็บไซต์ทำงานได้ | ข้อกฎหมาย: หากจำเป็นต้องเปิดเผยตามคำสั่งศาลหรือกฎหมายกำหนด</p>
+            
+            <p><strong>ลิงก์ไปยังเว็บไซต์อื่น:</strong> เว็บไซต์ของเราอาจมีลิงก์ไปยังเว็บไซต์ภายนอก (เช่น เว็บอุทยานแห่งชาติ, เว็บจองที่พัก หรือร้านขายอุปกรณ์เดินป่า) เราไม่มีอำนาจควบคุมและไม่รับผิดชอบต่อนโยบายความเป็นส่วนตัวของเว็บไซต์เหล่านั้น ขอให้คุณตรวจสอบนโยบายของเว็บปลายทางด้วยตนเอง</p>
+            
+            <p><strong>ความปลอดภัยของข้อมูล:</strong> เราใช้มาตรการรักษาความปลอดภัยที่เหมาะสมเพื่อป้องกันไม่ให้ข้อมูลของคุณสูญหายหรือถูกเข้าถึงโดยไม่ได้รับอนุญาต แต่อย่าลืมว่าไม่มีวิธีการส่งข้อมูลผ่านอินเทอร์เน็ตใดที่ปลอดภัย 100%</p>
+            
+            <p><strong>สิทธิของคุณ (PDPA):</strong> ภายใต้กฎหมายคุ้มครองข้อมูลส่วนบุคคล (หากบังคับใช้) คุณมีสิทธิ์ที่จะ: ขอเข้าถึง หรือขอรับสำเนาข้อมูลส่วนบุคคลที่เรามีอยู่ | ขอให้แก้ไข หรือลบข้อมูลของคุณออกจากระบบของเรา | ยกเลิกความยินยอมในการประมวลผลข้อมูล</p>
+
+            <p><strong>การเปลี่ยนแปลงนโยบาย:</strong> เราอาจปรับปรุงนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว โดยเราจะแจ้งให้ทราบผ่านหน้าเว็บไซต์นี้ และวันที่ "อัปเดตล่าสุด" ด้านบนจะเปลี่ยนไป</p>
+
+            <p><strong>ติดต่อเรา:</strong> หากคุณมีข้อสงสัยเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ สามารถติดต่อเราได้ที่: อีเมล: 664244120@pbru.ac.th] | ที่อยู่: 38 หมู่ที่ 8 ถนน หาดเจ้าสำราญ ตำบล นาวุ้ง อำเภอเมืองเพชรบุรี เพชรบุรี 76000</p>
+            
+            <p>หากมีคำถามเกี่ยวกับมาตราการความปลอดภัยของเรา คุณสามารถติดต่อกับพวกเราได้ทันที</p>
+        </div>
+    </div>
+
+    <footer class="ui-element">
+        <p>Copyright © 2026 HIKING SPOT | <a href="#" onclick="openOverlay('privacy'); return false;">Privacy</a></p>
+    </footer>
+<script src="assets/tooplate_living/tooplate-living-scripts.js"></script>
+</body>
+</html>

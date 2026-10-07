@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+/* =========================================
+   Reset & Variables
+========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                  
+    --cream: #F5EBE1;                       
+
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                        
+    --green-hover: #4a5c4b;                  
+
+    --light: #F5EBE1;                        
+    --white: #FFFFFF;                        
+
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+body { 
+    font-family: 'Kanit', sans-serif; 
+    background-color: var(--cream) !important; 
+    padding: 20px 10px; 
+    color: var(--brown-dark);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container { 
+    background: var(--white); 
+    padding: 25px; 
+    border-radius: 10px; 
+    box-shadow: var(--shadow); 
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* =========================================
+   Filter Form
+========================================= */
+.filter-form { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+    align-items: flex-end; 
+    flex-wrap: wrap; 
+}
+
+.input-group { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 1;
+    min-width: 180px; /* ป้องกันช่องกรอกแคบเกินไป */
+}
+
+.input-group label { 
+    font-size: 14px; 
+    font-weight: bold; 
+    margin-bottom: 5px; 
+}
+
+.input-group input, 
+.input-group select { 
+    width: 100%;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+.btn { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; 
+    background-color: var(--brown-dark); 
+    color: var(--white); 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover { 
+    background-color: var(--brown-light); 
+}
+
+.btn-clear { 
+    background-color: #dc3545; 
+    color: var(--white); 
+}
+
+.btn-clear:hover {
+    background-color: #bb2d3b;
+}
+
+.btn-view { 
+    background-color: var(--green); 
+    color: var(--white); 
+    padding: 6px 12px; 
+    border-radius: 4px; 
+    font-size: 13px; 
+}
+
+.btn-view:hover {
+    background-color: var(--green-hover);
+}
+
+.btn-back { 
+    background-color: var(--brown-light); 
+    color: var(--white); 
+}
+
+.btn-back:hover { 
+    background-color: var(--brown-dark); 
+}
+
+.btn-print { 
+    background-color: var(--green); 
+    color: var(--white); 
+}
+
+.btn-print:hover { 
+    background-color: var(--green-hover); 
+}
+
+.btn-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   Table Styles & Responsive Wrapper
+========================================= */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* ทำให้สโครลแนวนอนได้บนมือถือ */
+    -webkit-overflow-scrolling: touch;
+    margin-top: 20px;
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 600px; /* การันตีว่าตารางจะไม่เบี้ยวบีบจนอ่านไม่ออก */
+}
+
+th, td { 
+    padding: 12px 15px; 
+    border: 1px solid #ddd; 
+    text-align: left; 
+}
+
+th { 
+    background-color: var(--brown-dark); 
+    color: var(--white); 
+    font-weight: 600;
+}
+
+tr:nth-child(even) { 
+    background-color: #f9f9f9; 
+}
+
+/* =========================================
+   Receipt Card Styles
+========================================= */
+.receipt-card {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: var(--shadow); 
+    padding: 30px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px dashed var(--brown-light);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.header h1 { 
+    margin: 0; 
+    font-size: 24px; 
+    color: var(--brown-dark); 
+}
+
+.header p { 
+    margin: 5px 0 0; 
+    color: var(--brown-light); 
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--pink);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.info-row span.label { 
+    font-weight: bold; 
+}
+
+.games-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.games-list li {
+    padding: 8px 12px;
+    background: #f9f9f9;
+    border-left: 4px solid var(--green);
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.total-box {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 2px solid var(--brown-dark);
+    text-align: right;
+}
+
+.total-box h2 { 
+    margin: 0; 
+    color: var(--brown-dark); 
+    font-size: 20px; 
+}
+
+.total-box h2 span { 
+    color: var(--pink); 
+    font-size: 26px; 
+}
+
+/* =========================================
+   Responsive Breakpoints
+========================================= */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%; /* ปุ่มค้นหา/ล้างค่า เต็มจอในมือถือ */
+    }
+
+    .receipt-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-row {
+        flex-direction: column; /* ย้ายค่าข้อมูลลงบรรทัดใหม่ถ้ายาวเกินไป */
+        gap: 2px;
+    }
+
+    .total-box h2 {
+        font-size: 18px;
+    }
+
+    .total-box h2 span {
+        font-size: 22px;
+    }
+}
+
+/* =========================================
+   Print Optimization
+========================================= */
+@media print {
+    .btn-group,
+    .filter-form,
+    .back-btn {
+        display: none !important;
+    }
+
+    @page {
+        margin: 0; 
+    }
+
+    body {
+        background-color: white !important;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    /* แก้ไขคลาสจาก .receipt-container เป็น .receipt-card ให้ตรงกัน */
+    .receipt-card {
+        box-shadow: none;
+        border: none;
+        margin: 0 auto;
+        width: 80mm; /* ขนาดสลิปความร้อนมาตรฐาน */
+        padding: 10px;
+    }
+}

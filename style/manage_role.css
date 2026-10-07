@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ==================================================== 
+   1. ROOT VARIABLES & BASE STYLES
+==================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --brown-dark: #5D4038;                  
+    --brown-light: #9B6E60;                  
+    --cream: #F5EBE1;                       
+    --pink: #E5989B;                        
+    --pink-hover: #c58284;                  
+    --green: #576d5c;                        
+    --green-hover: #4a5c4b;                  
+    --light: #F5EBE1;                        
+    --white: #FFFFFF;                        
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);   
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-color: var(--cream);
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 20px 10px;
+    min-height: 100vh;
+}
+
+/* ==================================================== 
+   2. DASHBOARD CONTAINER & TABS
+==================================================== */
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.role-container {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.role-header h2 {
+    color: var(--brown-dark);
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.role-header p {
+    color: var(--brown-light);
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+/* Tab System */
+.tab-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--cream);
+    padding-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    text-decoration: none;
+    color: var(--brown-dark);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 25px;
+    background-color: var(--cream);
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--pink);
+    color: var(--white);
+    box-shadow: 0 4px 8px rgba(229, 152, 155, 0.4);
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: var(--pink-hover);
+    color: var(--white);
+}
+
+/* ==================================================== 
+   3. TABLE & ROLE FORMS
+==================================================== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.custom-table th, .custom-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #f0e6dd;
+    color: var(--brown-dark);
+    font-size: 15px;
+}
+
+.custom-table th {
+    background-color: var(--cream);
+    font-weight: 600;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #fdfaf7;
+}
+
+.badge {
+    background-color: var(--green);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Form Inside Table */
+.role-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.role-select {
+    padding: 8px 12px;
+    border: 1px solid var(--brown-light);
+    border-radius: 8px;
+    color: var(--brown-dark);
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    outline: none;
+    background-color: var(--white);
+}
+
+.btn-save-role {
+    background-color: var(--brown-dark);
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: 'Kanit', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save-role:hover {
+    background-color: var(--brown-light);
+}
+
+/* ==================================================== 
+   4. RESPONSIVE BREAKPOINTS
+==================================================== */
+@media (max-width: 768px) {
+    .role-container {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .role-header h2 {
+        font-size: 22px;
+    }
+
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
